@@ -31,7 +31,16 @@ venv/
 env/
 ENV/
 .env
-.venv
+.venv/
+
+# ML experiment / runtime artifacts
+mlruns/
+mlruns.db
+spark-warehouse/
+metastore_db/
+derby.log
+catboost_info/
+.dev/
 
 # IDE
 .vscode/

@@ -35,12 +35,21 @@ conda activate sre-hub
 pip install -r requirements.txt
 ```
 
-This installs all core dependencies:
+This installs the lightweight core stack:
 - **Data Science**: NumPy, Pandas, SciPy
 - **Visualization**: Matplotlib, Seaborn
 - **Machine Learning**: Scikit-learn
-- **Deep Learning**: TensorFlow (Keras)
-- **Jupyter**: Jupyter, IPython
+- **Jupyter + interactivity**: Jupyter, IPython, ipywidgets
+
+For the deep-learning and MLOps notebooks (`04_deep_learning/`, `pyspark`, `mlflow`,
+`llm_finetuning`), also install the heavier stack:
+
+```bash
+pip install -r requirements-deep.txt
+```
+
+This adds TensorFlow, PyTorch, PySpark (needs a JDK on your PATH), MLflow, and the
+Hugging Face fine-tuning libraries (GPU recommended for `llm_finetuning`).
 
 ### 4. Verify Installation
 

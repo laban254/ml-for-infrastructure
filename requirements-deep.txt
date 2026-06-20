@@ -1,0 +1,25 @@
+# Heavy / optional stack for the deep-learning & MLOps notebooks.
+# Install the core stack first, then this one:
+#     pip install -r requirements.txt
+#     pip install -r requirements-deep.txt
+#
+# These are split out so the core learning tracks stay fast to install and
+# the CI pipeline does not have to pull GPU-scale wheels on every run.
+
+# Deep learning
+tensorflow==2.16.1          # 04_deep_learning/keras
+torch==2.4.1                # 04_deep_learning/pytorch
+
+# Distributed data (requires a JDK on PATH)
+pyspark==3.5.3              # 01_foundations/distributed_data
+
+# MLOps
+mlflow==2.16.2             # 05_sre_applications/mlops_tracking
+
+# LLM fine-tuning — 05_sre_applications/llm_finetuning
+# Runs on CPU with a tiny model; for the 4-bit GPU path also `pip install bitsandbytes`.
+transformers==4.44.2
+peft==0.12.0
+trl==0.9.6
+datasets==2.21.0
+accelerate==0.34.2

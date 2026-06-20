@@ -2,14 +2,23 @@
 
 A quick guide to start learning about ML for Infrastructure.
 
+## Zero-install option (fastest)
+
+Don't want to install anything? Open any notebook and click the **Open in Colab** or **Open in Binder** badge at the top — it runs in a free cloud runtime in your browser. Notebooks are committed with their outputs already rendered, so you can also just read them on GitHub.
+
+For hands-on local work, follow the quickstart below.
+
 ## 5-Minute Quickstart
 
 ### Step 1: Install
 ```bash
 git clone https://github.com/laban254/ml-for-infrastructure.git
 cd ml-for-infrastructure
-pip install -r requirements.txt
+pip install -r requirements.txt           # light core stack (foundations, viz, sklearn)
 python fetch_data.py --quick
+
+# Optional — only for 04_deep_learning + pyspark/mlflow notebooks:
+pip install -r requirements-deep.txt
 ```
 
 ### Step 2: Launch Jupyter
@@ -206,6 +215,7 @@ cat 03_machine_learning/scikit-learn/preprocessing/README.md
 05_sre_applications/  ← Real-world ops use cases
         ├── anomaly_detection/
         ├── log_analysis/
+        ├── llm_finetuning/
         ├── mlops_tracking/
         └── model_monitoring/
 ```

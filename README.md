@@ -1,9 +1,10 @@
 # 🧠 ML for Infrastructure
 
-[![CI Status](https://github.com/laban254/ml-for-infrastructure/actions/workflows/ci.yml/badge.svg)](#)
-[![Python Version](https://img.shields.io/badge/Python-3.10+-blue)](#)
-[![Theme](https://img.shields.io/badge/Context-Observability--First-blueviolet)](#)
-[![Reproducibility](https://img.shields.io/badge/Hashes-Verified-success)](#)
+[![CI Status](https://github.com/laban254/ml-for-infrastructure/actions/workflows/ci.yml/badge.svg)](https://github.com/laban254/ml-for-infrastructure/actions/workflows/ci.yml)
+[![Python Version](https://img.shields.io/badge/Python-3.10+-blue)](https://www.python.org/)
+[![Theme](https://img.shields.io/badge/Context-Observability--First-blueviolet)](#-infrastructure-intelligence)
+[![License](https://img.shields.io/badge/License-MIT-green)](#-philosophy--license)
+[![Open in Colab](https://img.shields.io/badge/Open%20in-Colab-orange?logo=googlecolab)](https://colab.research.google.com/github/laban254/ml-for-infrastructure)
 
 ---
 
@@ -23,7 +24,7 @@
 
 ## ⚡ Capabilities
 
-### �️‍🗨️ Intelligent Monitoring (`03_machine_learning/`)
+### 🛰️ Intelligent Monitoring (`03_machine_learning/` & `05_sre_applications/`)
 Solving the "hard" problems in production using ML:
 *   **Anomaly Detection:** Native **Isolation Forest** implementation to detect DDoS attacks and database locks without manual thresholds.
 *   **Log Clustering:** Automatic grouping of millions of unstructured logs into "Healthy", "Slow", and "Failing" behaviors.
@@ -60,13 +61,31 @@ Toggle between fast iteration and complete training directly from the CLI or wit
 
 ---
 
-## ⚡ Quick Start
+## 🚀 Run it live (zero install)
+
+Every notebook carries **Open in Colab** and **Open in Binder** badges at the top. Click one and the notebook runs in a free cloud runtime — no setup, nothing to install. The flagship scenarios ship with **interactive sliders** (drag the Isolation Forest sensitivity, the alert threshold, or the drift magnitude and watch the result update) plus **"Try it yourself" exercises** with reveal-on-click solutions.
+
+> 📌 Notebooks are committed **with their outputs already rendered**, so you can read the full story — charts, metrics, insights — straight from GitHub without running anything.
+
+Best notebooks to start with:
+
+| Scenario | Notebook | You'll learn |
+| --- | --- | --- |
+| 🚨 Anomaly detection | [`prometheus_anomaly.ipynb`](05_sre_applications/anomaly_detection/prometheus_anomaly.ipynb) | Isolation Forest vs Z-score on CPU telemetry — interactive |
+| 📉 Data drift | [`data_drift.ipynb`](05_sre_applications/model_monitoring/data_drift.ipynb) | KS-test drift detection — interactive |
+| 🧮 NumPy foundations | [`numpy.ipynb`](01_foundations/numpy/numpy.ipynb) | Vectorized metric analysis — interactive |
+| 🩺 Server health | [`classification.ipynb`](03_machine_learning/scikit-learn/supervised-learning-algorithms/classification.ipynb) | Multi-class triage with feature importance |
+
+---
+
+## ⚡ Quick Start (local)
 
 1.  **Clone & Install**
     ```bash
     git clone https://github.com/laban254/ml-for-infrastructure.git
     cd ml-for-infrastructure
-    pip install -r requirements.txt
+    pip install -r requirements.txt            # light core stack — runs most notebooks
+    pip install -r requirements-deep.txt       # optional: keras, pytorch, pyspark, mlflow
     ```
 
 2.  **Ingest Sample Data**
@@ -75,7 +94,7 @@ Toggle between fast iteration and complete training directly from the CLI or wit
     ```
 
 3.  **Run a Scenario**
-    Open `03_machine_learning/scikit-learn/unsupervised-learning-algorithms/anomality.ipynb` to see the Isolation Forest in action.
+    Open `05_sre_applications/anomaly_detection/prometheus_anomaly.ipynb` to see the Isolation Forest in action — then drag the sensitivity slider.
 
 ---
 
