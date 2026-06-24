@@ -1,15 +1,15 @@
-# AGENTS.md
+# Development Guide
 
-This file provides guidance to agents when working with code in this repository.
+This document provides guidance for developers and AI agents working with this repository.
 
 ## Project Overview
-Data Science & ML Learning Hub - A collection of Jupyter notebooks for learning data science and machine learning topics (NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn, Keras).
+**ML for Infrastructure** - A collection of Jupyter notebooks for learning data science and machine learning topics tailored for infrastructure and operations (NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn, Keras, PyTorch).
 
 ## Commands
 
 ### Run a Notebook
 ```bash
-jupyter notebook numpy/numpy.ipynb
+jupyter notebook 01_foundations/numpy/numpy.ipynb
 # or
 jupyter lab <notebook>.ipynb
 ```
@@ -57,8 +57,18 @@ python notebook_toggle.py --mode full  # Set full mode
 - Controlled via `NOTEBOOK_MODE` environment variable or `notebook_toggle.py`
 
 ## Project Structure
-- Topic directories contain notebooks, README.md, requirements.txt, and .gitignore
-- numpy/ has a GOTCHAS.md documenting NumPy-specific pitfalls
+- Topic directories organized by: Foundations → Visualization → ML → Deep Learning → SRE Applications
+- Each topic directory contains: notebooks, README.md, requirements.txt, and .gitignore
+- `numpy/` includes GOTCHAS.md documenting NumPy-specific pitfalls
 - `fetch_data.py` provides centralized data fetching with hash verification
 - `notebook_toggle.py` provides quick/full mode toggle for notebooks
-- See CONTRIBUTING.md for full notebook template and coding standards
+- See `CONTRIBUTING.md` for full notebook template and coding standards
+
+## Typical Development Workflow
+
+1. Create a new notebook in the appropriate topic folder
+2. Follow the template in `CONTRIBUTING.md`
+3. Use `random_state=42` for all randomization
+4. Test in both quick and full modes
+5. Clear outputs before committing
+6. Ensure all cells run without errors

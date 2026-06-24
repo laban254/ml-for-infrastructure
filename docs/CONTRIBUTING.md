@@ -1,4 +1,4 @@
-# Contributing to DS/ML Learning Hub
+# Contributing to SRE Intelligence Hub
 
 Thank you for your interest in contributing! This guide outlines conventions and workflows for this repository.
 
@@ -69,6 +69,7 @@ import pandas as pd
 - Include markdown explanations between code cells
 - Add comments in code for complex logic
 - Reference common pitfalls in callout boxes
+```
 
 ---
 
