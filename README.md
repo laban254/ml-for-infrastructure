@@ -1,104 +1,100 @@
-# ML for Infrastructure
+# 🧠 ML for Infrastructure
 
 [![CI Status](https://github.com/laban254/ml-for-infrastructure/actions/workflows/ci.yml/badge.svg)](https://github.com/laban254/ml-for-infrastructure/actions/workflows/ci.yml)
 [![Python Version](https://img.shields.io/badge/Python-3.10+-blue)](https://www.python.org/)
-[![Theme](https://img.shields.io/badge/Context-Observability--First-blueviolet)](#-infrastructure-intelligence)
-[![License](https://img.shields.io/badge/License-MIT-green)](#-philosophy--license)
+[![License](https://img.shields.io/badge/License-MIT-green)](#%EF%B8%8F-license)
 [![Open in Colab](https://img.shields.io/badge/Open%20in-Colab-orange?logo=googlecolab)](https://colab.research.google.com/github/laban254/ml-for-infrastructure)
 
 ---
 
-## Documentation
-- [Getting Started](docs/GETTING-STARTED.md) - 5-minute quickstart guide
-- [Setup & Installation](docs/SETUP.md) - Detailed installation instructions
-- [Architecture](docs/ARCHITECTURE.md) - Project structure and design
-- [Contributing](docs/CONTRIBUTING.md) - Contribution guidelines
-- [Development](docs/DEVELOPMENT.md) - Developer guide for agents
+## 📚 Documentation
+- [Getting Started](docs/GETTING-STARTED.md) — 5-minute quickstart
+- [Setup & Installation](docs/SETUP.md) — detailed installation
+- [Architecture](docs/ARCHITECTURE.md) — project structure and design
+- [Contributing](docs/CONTRIBUTING.md) — how to contribute
 
 ---
 
-## What this is
-**ML for Infrastructure** provides Machine Learning workflows tailored for modern observability. Every module leverages system telemetry — CPU, memory, network, and logs — to solve real production failure scenarios.
+## 🎯 What this is
+
+27 Jupyter notebooks that teach machine learning through real infrastructure scenarios — not Iris, not Titanic. Every notebook uses data engineers actually deal with: CPU spikes, log streams, latency distributions shifting after a deploy, and model drift in production.
 
 ---
 
-## Capabilities
+## 🗂️ Capabilities
 
 ### 📡 Intelligent Monitoring (`03_machine_learning/` & `05_sre_applications/`)
-Solving the "hard" problems in production using ML:
-*   **Anomaly Detection:** Native **Isolation Forest** implementation to detect DDoS attacks and database locks without manual thresholds.
-*   **Log Clustering:** Automatic grouping of millions of unstructured logs into "Healthy", "Slow", and "Failing" behaviors.
-*   **Predictive scaling:** Forecasting application latency based on concurrent connection spikes using Regression models.
+*   **Anomaly Detection:** Isolation Forest on Prometheus-style CPU metrics — catches DDoS spikes and service outages without manual thresholds. Includes a live sensitivity slider.
+*   **Log Clustering:** TF-IDF + KMeans groups unstructured logs by pattern, auto-names each cluster from its top keywords, and flags log lines that don't fit any known group.
+*   **Predictive Scaling:** Regression model forecasts latency from connection-spike data before the slowdown hits users.
 
 ### ⚙️ MLOps & Production Pipelines
-ML is only useful if it runs reliably in a CI/CD environment.
-*   **Leakage-Free Pipelines:** Preprocessing + models bundled for consistent deployment.
-*   **Operational Metrics:** Prioritizing **Precision (Alert Fatigue)** and **Recall (Missed Outages)** over simple binary accuracy.
-*   **Automated Tuning:** Self-optimizing hyperparameters for API timeout prediction via **GridSearchCV**.
+ML is only useful if it runs reliably in production.
+*   **Leakage-Free Pipelines:** Preprocessing and model bundled together so training and serving use identical transformations.
+*   **Precision over Accuracy:** Notebooks prioritize recall (missed outages) and precision (alert fatigue) — the metrics that matter on-call, not just overall accuracy.
+*   **Hyperparameter Tuning:** GridSearchCV sweep over API timeout prediction, with inline results — no separate dashboard needed.
 
 ### 📊 Observability Visuals (`02_visualization/`)
-Professional-grade reporting designed for post-mortems and incident analysis.
-*   **RCA Dashboards:** Automated charts with alert thresholds and OOM event markers.
-*   **Drift Detection:** Using statistical tests (KS-test) to detect when infrastructure performance shifts permanently.
+Charts built for post-mortems and incident reviews, not presentations.
+*   **RCA Dashboards:** Annotated plots with alert thresholds and OOM event markers that tell a story at a glance.
+*   **Drift Detection:** KS-test flags when production latency has shifted significantly from the training distribution — interactive slider shows exactly where the significance threshold is crossed.
 
 ---
 
 ## 🔧 Automation & Tooling
-Built with a DevOps mindset, the hub includes CLI tools for speed and reproducibility.
 
-### 📥 Data Ingestion (`fetch_data.py`)
-Centralized data fetching with built-in **Integrity Verification (MD5 Hashes)**.
+### 📥 Data Fetching (`fetch_data.py`)
+One script to fetch sample data with MD5 checksum verification.
 ```bash
-python fetch_data.py --quick     # Ingest small samples for fast testing
-python fetch_data.py --full      # Ingest full datasets for training
-python fetch_data.py --verify    # Verify data integrity against known hashes
+python fetch_data.py --quick     # fetch small samples for fast iteration
+python fetch_data.py --full      # fetch complete datasets for training
+python fetch_data.py --verify    # verify data integrity against known hashes
 ```
 
 ### 🎛️ Execution Modes (`notebook_toggle.py`)
-Toggle between fast iteration and complete training directly from the CLI or within Jupyter.
-*   **Quick Mode:** Uses 10% of data and 1/10th of iterations for instant feedback.
-*   **Full Mode:** Leverages all CPU cores (`n_jobs=-1`) and full datasets for production-grade models.
+Switch between fast and full runs from the CLI or inside a notebook.
+*   **Quick Mode:** 10% of data, 1/10th of iterations — useful for understanding the code without waiting.
+*   **Full Mode:** Uses all CPU cores (`n_jobs=-1`) and complete datasets for production-grade results.
 
 ---
 
 ## 🚀 Run it live — zero install
 
-Every notebook carries **Open in Colab** and **Open in Binder** badges at the top. Click one and the notebook runs in a free cloud runtime — no setup, nothing to install. The flagship scenarios ship with **interactive sliders** (drag the Isolation Forest sensitivity, the alert threshold, or the drift magnitude and watch the result update) plus **"Try it yourself" exercises** with reveal-on-click solutions.
+Every notebook has **Open in Colab** and **Open in Binder** badges at the top — click one and it runs in a free cloud environment, nothing to install. Key notebooks include **interactive sliders** (tune the anomaly sensitivity, move the drift threshold, adjust the alert level) and **"Try it yourself" exercises** with reveal-on-click solutions.
 
-> 📌 Notebooks are committed **with their outputs already rendered**, so you can read the full story — charts, metrics, insights — straight from GitHub without running anything.
+> 📌 All notebooks are committed **with outputs already rendered** — you can read the full results, charts, and metrics directly on GitHub without running anything.
 
-Best notebooks to start with:
+Best place to start:
 
-| Scenario | Notebook | You'll learn |
+| Scenario | Notebook | What you'll learn |
 | --- | --- | --- |
 | 🚨 Anomaly detection | [`prometheus_anomaly.ipynb`](05_sre_applications/anomaly_detection/prometheus_anomaly.ipynb) | Isolation Forest vs Z-score on CPU telemetry — interactive |
 | 📉 Data drift | [`data_drift.ipynb`](05_sre_applications/model_monitoring/data_drift.ipynb) | KS-test drift detection — interactive |
-| 🧮 NumPy foundations | [`numpy.ipynb`](01_foundations/numpy/numpy.ipynb) | Vectorized metric analysis — interactive |
+| 🧮 NumPy foundations | [`numpy.ipynb`](01_foundations/numpy/numpy.ipynb) | Vectorised metric analysis — interactive |
 | 🩺 Server health | [`classification.ipynb`](03_machine_learning/scikit-learn/supervised-learning-algorithms/classification.ipynb) | Multi-class triage with feature importance |
 
 ---
 
-## ⚡ Quick Start (local install)
+## ⚡ Quick Start (local)
 
-1.  **Clone & Install**
+1.  **Clone & install**
     ```bash
     git clone https://github.com/laban254/ml-for-infrastructure.git
     cd ml-for-infrastructure
-    pip install -r requirements.txt            # light core stack — runs most notebooks
+    pip install -r requirements.txt            # core stack — runs most notebooks
     pip install -r requirements-deep.txt       # optional: keras, pytorch, pyspark, mlflow
     ```
 
-2.  **Ingest Sample Data**
+2.  **Fetch sample data**
     ```bash
     python fetch_data.py --quick
     ```
 
-3.  **Run a Scenario**
-    Open `05_sre_applications/anomaly_detection/prometheus_anomaly.ipynb` to see the Isolation Forest in action — then drag the sensitivity slider.
+3.  **Open a notebook**
+    Start with `05_sre_applications/anomaly_detection/prometheus_anomaly.ipynb` — drag the sensitivity slider and watch the anomaly count change in real time.
 
 ---
 
 ## ⚖️ License
-We prioritize **Precision** (avoiding Alert Fatigue) ensuring that when a model fires, it's worth an engineer's attention.
 
-*Distributed under the MIT license.*
+Distributed under the MIT license.
