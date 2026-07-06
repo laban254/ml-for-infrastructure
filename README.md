@@ -19,6 +19,8 @@
 
 27 Jupyter notebooks that teach machine learning through real infrastructure scenarios — not Iris, not Titanic. Every notebook uses data engineers actually deal with: CPU spikes, log streams, latency distributions shifting after a deploy, and model drift in production.
 
+⭐ If this is useful, a star helps others find it.
+
 ---
 
 ## 🗂️ Capabilities
