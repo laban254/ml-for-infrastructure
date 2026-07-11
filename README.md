@@ -1,5 +1,7 @@
 # 🧠 ML for Infrastructure
 
+![ML for Infrastructure — CPU time series with Isolation Forest anomaly detection, flagging a DDoS spike and a service outage](social_preview.png)
+
 [![CI Status](https://github.com/laban254/ml-for-infrastructure/actions/workflows/ci.yml/badge.svg)](https://github.com/laban254/ml-for-infrastructure/actions/workflows/ci.yml)
 [![Python Version](https://img.shields.io/badge/Python-3.10+-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green)](#%EF%B8%8F-license)
